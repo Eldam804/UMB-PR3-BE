@@ -18,12 +18,19 @@ public class CustomerController {
     public void getCustomers(@PathVariable Long customerID) {
         System.out.println("Get customer called: " + customerID);
     }
+    @GetMapping("/api/customers/{customerId}")
+    public void getCustomer(@PathVariable Long customerId){
+        System.out.println("get customer called ID:" + customerId);
+    }
     @PutMapping("/api/customer/{customerID}")
     public void updateCustomer(@PathVariable Long customerID){
         System.out.println("update customer called: id = " + customerID);
     }
 
-
+    @DeleteMapping("/api/customers/{customerId}")
+    public void deleteCustomer(@PathVariable Long customerId){
+        System.out.println("Customer with ID:" + customerId);
+    }
 
 
 }
