@@ -1,27 +1,33 @@
 package sk.umb.example.library.book.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sk.umb.example.library.book.service.BookDetailDto;
+import sk.umb.example.library.book.service.BookDetailRequestDto;
+import sk.umb.example.library.book.service.BookService;
 
 import java.util.Collections;
 import java.util.List;
 
 @RestController
 public class BookController {
+    @Autowired
+    private BookService bookService;
     @GetMapping("/api/books")
-    public List<Object> listResource(@RequestParam(required = false) String name){
-        return Collections.emptyList();
+    public List<BookDetailDto> getBooks(){
+        return bookService.getAllBooks();
     }
-    @GetMapping("/api/books/{id}")
-    public void retrieveDetail(@PathVariable long id){
-        System.out.println("Printing book at id:"+id);
+    @GetMapping("/api/books/{bookId}")
+    public BookDetailDto getBookById(@PathVariable long bookId){
+        return bookService.getBookById(bookId);
     }
     @PostMapping("/api/books")
-    public void createResource(){
-        System.out.println("Added book");
+    public BookDetailDto createBook(@RequestParam BookDetailRequestDto bookDetailRequestDto){
+        return bookService.createBook(bookDetailRequestDto);
     }
     @PutMapping("/api/books/{bookId}")
-    public void updateResource(@PathVariable long bookId){
-        System.out.println("Updated book at:" + bookId);
+    public void updateBook(@PathVariable long bookId, @RequestParam BookDetailRequestDto bookDetailRequestDto){
+        bookService.updateBook(bookId, bookDetailRequestDto);
     }
     @DeleteMapping("/api/books/{bookId}")
     public void deleteResource(@PathVariable long bookId){
