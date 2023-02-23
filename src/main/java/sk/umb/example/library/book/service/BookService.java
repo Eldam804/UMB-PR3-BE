@@ -1,8 +1,11 @@
 package sk.umb.example.library.book.service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class BookService {
     private final List<BookDetailDto> books = new ArrayList<>();
     public List<BookDetailDto> getAllBooks(){
@@ -27,10 +30,10 @@ public class BookService {
     }
     public BookDetailDto createBook(BookDetailRequestDto bookDetailRequestDto){
         Long customerId = (long)books.size();
-        BookDetailDto bookDetailDto = new BookDetailDto();
-        bookDetailDto = mapToBookDetailDto(bookDetailRequestDto);
+        BookDetailDto bookDetailDto = mapToBookDetailDto(bookDetailRequestDto);
         bookDetailDto.setId(customerId);
-        return new BookDetailDto();
+        books.add(bookDetailDto);
+        return bookDetailDto;
     }
 
     public void updateBook(Long bookId, BookDetailRequestDto bookDetailRequestDto){

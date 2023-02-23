@@ -11,8 +11,11 @@ import java.util.List;
 
 @RestController
 public class BookController {
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
     @GetMapping("/api/books")
     public List<BookDetailDto> getBooks(){
         return bookService.getAllBooks();
@@ -22,11 +25,11 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
     @PostMapping("/api/books")
-    public BookDetailDto createBook(@RequestParam BookDetailRequestDto bookDetailRequestDto){
+    public BookDetailDto createBook(@RequestBody BookDetailRequestDto bookDetailRequestDto){
         return bookService.createBook(bookDetailRequestDto);
     }
     @PutMapping("/api/books/{bookId}")
-    public void updateBook(@PathVariable long bookId, @RequestParam BookDetailRequestDto bookDetailRequestDto){
+    public void updateBook(@PathVariable long bookId, @RequestBody BookDetailRequestDto bookDetailRequestDto){
         bookService.updateBook(bookId, bookDetailRequestDto);
     }
     @DeleteMapping("/api/books/{bookId}")
