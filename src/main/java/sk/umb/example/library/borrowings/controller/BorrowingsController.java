@@ -8,23 +8,23 @@ import java.util.List;
 @RestController
 public class BorrowingsController {
     @GetMapping("/api/borrowings")
-    public List<Object> searchBorrowed(@RequestParam(required = false) String name){
+    public List<Object> listResource(@RequestParam(required = false) String name){
         return Collections.emptyList();
     }
     @GetMapping("/api/borrowings/{id}")
-    public void getBorrow(@PathVariable long id){
+    public void retrieveDetail(@PathVariable long id){
         System.out.println("Printing Borrow at id:"+id);
     }
     @PostMapping("/api/borrowings")
-    public void addBorrow(){
+    public void createResource(){
         System.out.println("Added Borrow");
     }
     @PutMapping("/api/borrowings/{borrowingsId}")
-    public void updateBorrow(@PathVariable long borrowingsId){
+    public void updateResource(@PathVariable long borrowingsId){
         System.out.println("Updated Borrow at:" + borrowingsId);
     }
     @DeleteMapping("/api/borrowings/{borrowingsId}")
-    public void deleteBorrow(@PathVariable long borrowingsId){
+    public void deleteResource(@PathVariable long borrowingsId){
         System.out.println("Deleted Borrow: " + borrowingsId);
     }
 }
