@@ -1,12 +1,16 @@
 package sk.umb.example.library.customer.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sk.umb.example.library.customer.persistence.CustomerRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CustomerService {
+    @Autowired
+    private CustomerRepository customerRepository;
     private final List<CustomerDto> customers = new ArrayList<>();
 
 
