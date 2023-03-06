@@ -20,6 +20,7 @@ public class BorrowingsService {
     private BookService bookService;
     private List<BorrowingDetailDto> borrowings = new ArrayList<>();
 
+
     public List<BorrowingDetailDto> getAllBorrowings(){
         return this.borrowings;
     }
