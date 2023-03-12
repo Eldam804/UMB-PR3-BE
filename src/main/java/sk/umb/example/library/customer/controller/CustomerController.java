@@ -17,32 +17,32 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/api/customer")
+    @GetMapping("/api/customers")
     public List<CustomerDto> getCustomers(@RequestParam(required = false) String lastName){
         System.out.println("Search Customer called.");
         return customerService.getAllCustomers();
         //return Collections.emptyList();
     }
 
-    @PostMapping("/api/customer")
+    @PostMapping("/api/customers")
     public Long createCustomers(@RequestBody CustomerRequestDto customerId) {
         return customerService.createNewCustomer(customerId);
     }
-    @GetMapping("/api/customer/{customerId}")
+    @GetMapping("/api/customers/{customerId}")
     public CustomerDto getCustomer(@PathVariable Long customerId){
         System.out.println("get customer called ID:" + customerId);
         return customerService.getCustomerById(customerId);
     }
-    @PutMapping("/api/customer/{customerId}")
+    @PutMapping("/api/customers/{customerId}")
     public void updateCustomer(@PathVariable Long customerId, @RequestBody CustomerRequestDto customer){
         System.out.println("update customer called: id = " + customerId);
 
         customerService.updateCustomer(customerId, customer);
     }
 
-    @DeleteMapping("/api/customer/{customerId}")
+    @DeleteMapping("/api/customers/{customerId}")
     public void deleteCustomer(@PathVariable Long customerId){
-        System.out.println("Customer with ID:" + customerId);
+        customerService.deleteCustomer(customerId);
     }
 
 
