@@ -56,7 +56,9 @@ public class CustomerService {
     @Transactional
     public Long createNewCustomer(CustomerRequestDto customer) {
         CustomerEntity entity = mapToEntity(customer);
-
+        System.out.println(entity.getFirstName());
+        System.out.println(entity.getLastName());
+        System.out.println(entity.getContact());
         return customerRepository.save(entity).getId();
     }
 
@@ -68,8 +70,8 @@ public class CustomerService {
     private CustomerEntity mapToEntity(CustomerRequestDto customer) {
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setFirstName(customer.getFirstName());
-        customerEntity.setLastName(customerEntity.getLastName());
-        customerEntity.setContact(customerEntity.getContact());
+        customerEntity.setLastName(customer.getLastName());
+        customerEntity.setContact(customer.getContact());
         return customerEntity;
     }
 
