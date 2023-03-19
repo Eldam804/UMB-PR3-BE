@@ -1,12 +1,17 @@
-package sk.umb.example.library.category.service;
+package sk.umb.example.library.category.persistence.entity;
 
-public class CategoryDto {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class GenreEntity {
+    @Id
+    @GeneratedValue
     private Long id;
-
     private String name;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

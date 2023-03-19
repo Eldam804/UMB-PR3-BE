@@ -25,15 +25,15 @@ public class CategoryController {
         return this.categoryService.getCategoryById(id);
     }
     @PostMapping("/api/category")
-    public CategoryDto createResource(@RequestBody CategoryRequestDto categoryRequestDto){
-        return this.categoryService.createNewCategory(categoryRequestDto);
+    public Long createResource(@RequestBody CategoryRequestDto categoryRequestDto){
+        return this.categoryService.createGenre(categoryRequestDto);
     }
     @PutMapping("/api/category/{categoryId}")
     public void updateResource(@PathVariable long categoryId,@RequestBody CategoryRequestDto categoryRequestDto){
-        categoryService.updateCategory(categoryId,categoryRequestDto);
+        categoryService.updateGenre(categoryId,categoryRequestDto);
     }
     @DeleteMapping("/api/category/{categoryId}")
     public void deleteResource(@PathVariable long categoryId){
-        System.out.println("Deleted category:" + categoryId);
+        categoryService.deleteGenre(categoryId);
     }
 }
