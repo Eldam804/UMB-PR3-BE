@@ -3,11 +3,8 @@ package sk.umb.example.library.category.service;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sk.umb.example.library.book.persistence.entity.BookEntity;
-import sk.umb.example.library.category.perzistence.GenreRepository;
-import sk.umb.example.library.category.perzistence.entity.GenreEntity;
-import sk.umb.example.library.category.service.CategoryDto;
-import sk.umb.example.library.category.service.CategoryRequestDto;
+import sk.umb.example.library.category.persistence.GenreRepository;
+import sk.umb.example.library.category.persistence.entity.GenreEntity;
 
 import java.util.ArrayList;
 import java.util.List;

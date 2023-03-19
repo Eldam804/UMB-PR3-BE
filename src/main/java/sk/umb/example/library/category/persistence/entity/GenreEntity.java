@@ -1,4 +1,4 @@
-package sk.umb.example.library.category.perzistence.entity;
+package sk.umb.example.library.category.persistence.entity;
 
 import org.springframework.data.annotation.Id;
 
