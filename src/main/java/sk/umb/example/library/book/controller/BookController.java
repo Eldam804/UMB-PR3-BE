@@ -25,7 +25,7 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
     @PostMapping("/api/books")
-    public BookDetailDto createBook(@RequestBody BookDetailRequestDto bookDetailRequestDto){
+    public Long createBook(@RequestBody BookDetailRequestDto bookDetailRequestDto){
         return bookService.createBook(bookDetailRequestDto);
     }
     @PutMapping("/api/books/{bookId}")
@@ -34,6 +34,6 @@ public class BookController {
     }
     @DeleteMapping("/api/books/{bookId}")
     public void deleteResource(@PathVariable long bookId){
-        System.out.println("Deleted book: " + bookId);
+        bookService.deleteBook(bookId);
     }
 }
