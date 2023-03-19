@@ -38,7 +38,7 @@ public class BorrowingsController {
     }
     @DeleteMapping("/api/borrowings/{borrowingsId}")
     public void deleteResource(@PathVariable long borrowingsId){
-        System.out.println("Deleted Borrow: " + borrowingsId);
+        this.borrowingsService.deleteBorrowing(borrowingsId);
     }
 }
 
