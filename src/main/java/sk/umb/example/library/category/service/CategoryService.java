@@ -56,7 +56,7 @@ public class CategoryService {
     private CategoryDto maptoDto(GenreEntity genreEntity){
         CategoryDto categoryDto = new CategoryDto();
         categoryDto.setId(genreEntity.getId());
-        categoryDto.setName(categoryDto.getName());
+        categoryDto.setName(genreEntity.getName());
         return categoryDto;
     }
     private  GenreEntity maptoEntity(CategoryRequestDto categoryRequestDto){

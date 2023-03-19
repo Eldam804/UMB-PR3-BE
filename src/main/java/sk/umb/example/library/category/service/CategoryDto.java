@@ -2,7 +2,7 @@ package sk.umb.example.library.category.service;
 
 public class CategoryDto {
 
-    private long id;
+    private Long id;
 
     private String name;
 
@@ -10,7 +10,7 @@ public class CategoryDto {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
